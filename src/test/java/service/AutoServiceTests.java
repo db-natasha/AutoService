@@ -59,4 +59,9 @@ public class AutoServiceTests {
         });
         assertEquals("Нельзя завершить заказ: ремонт не выполнен", exception.getMessage());
     }
+    @Test //ЛР4
+    public void testOrderNotFound() {
+        RepairOrder notFoundOrder = service.findOrder(999);
+        assertNull(notFoundOrder);
+    }
 }
