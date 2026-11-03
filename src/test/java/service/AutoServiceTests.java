@@ -28,7 +28,7 @@ public class AutoServiceTests {
         service.changeStatus(1, "IN_PROGRESS");
         service.markRepairDone(1);
         service.changeStatus(1, "COMPLETED");
-        assertEquals("IN_PROGRESS", service.findOrder(1).getStatus());
+        assertEquals("COMPLETED", service.findOrder(1).getStatus());
         assertTrue(service.findOrder(1).isRepairDone());
     }
 
