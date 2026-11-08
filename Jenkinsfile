@@ -13,6 +13,12 @@ pipeline {
                 bat "\"${env.MAVEN_CMD}\" clean compile"
             }
         }
+        stage('Static Analysis') {
+                    steps {
+                        echo 'Выполняем статический анализ кода...'
+                        bat "\"${env.MAVEN_CMD}\" checkstyle:check"
+                    }
+                }
         stage('Test') {
             steps {
                 echo 'Запускаем модульные тесты...'
