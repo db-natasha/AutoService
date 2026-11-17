@@ -15,6 +15,10 @@
 
     <module name="TreeWalker">
 
+        <module name="ConstantName">
+            <property name="severity" value="error"/>
+        </module>
+
         <module name="TypeName">
             <property name="severity" value="error"/>
         </module>
