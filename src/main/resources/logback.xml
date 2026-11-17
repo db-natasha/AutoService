@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- Консольный аппендер -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
+            <charset>UTF-8</charset>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Уровень логирования для вашего пакета -->
     <logger name="service" level="INFO"/>
     <logger name="application" level="INFO"/>
 
-    <!-- Корневой уровень -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>

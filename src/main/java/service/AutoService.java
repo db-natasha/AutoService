@@ -9,7 +9,7 @@ import repository.RepairRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class autoService {
+public class AutoService {
     private static final Logger logger = LoggerFactory.getLogger(AutoService.class);
 
     private final RepairRepository repository;

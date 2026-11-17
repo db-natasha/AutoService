@@ -7,53 +7,51 @@
     <property name="charset" value="UTF-8"/>
     <property name="severity" value="warning"/>
 
-    <!-- Проверка длины строки -->
+
     <module name="LineLength">
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
     </module>
 
-    <!-- Проверка файлов .java -->
     <module name="TreeWalker">
-        <!-- Проверка именования классов -->
+
         <module name="TypeName">
             <property name="severity" value="error"/>
         </module>
 
-        <!-- Проверка именования методов -->
+
         <module name="MethodName">
             <property name="severity" value="error"/>
         </module>
 
-        <!-- Проверка именования переменных -->
+
         <module name="LocalVariableName">
             <property name="severity" value="error"/>
         </module>
 
-        <!-- Проверка наличия пустых строк -->
+
         <module name="EmptyLineSeparator">
             <property name="allowNoEmptyLineBetweenFields" value="true"/>
         </module>
 
-        <!-- Проверка отсутствия лишних пробелов -->
+
         <module name="WhitespaceAfter">
             <property name="tokens" value="COMMA, SEMI, TYPECAST"/>
         </module>
 
-        <!-- Проверка использования отступов -->
+
         <module name="Indentation">
             <property name="basicOffset" value="4"/>
             <property name="braceAdjustment" value="0"/>
             <property name="caseIndent" value="4"/>
         </module>
 
-        <!-- Проверка отсутствия пустых блоков -->
+
         <module name="EmptyBlock">
             <property name="option" value="TEXT"/>
             <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
         </module>
 
-        <!-- Проверка наличия модификатора final для локальных переменных (опционально) -->
-        <!-- <module name="FinalLocalVariable"/> -->
+
     </module>
 </module>
