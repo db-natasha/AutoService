@@ -18,7 +18,7 @@ public class AutoService {
         this.repository = repository;
     }
 
-    public void createOrder(RepairOrder order) {
+    public void createOrderWertyumnbvcrdtrftrfyt(RepairOrder order) {
         logger.info("Создание нового заказа на обслуживание: автомобиль {} [{}], клиент: {}, описание: {}",
                 order.getCar().getBrand(),
                 order.getCar().getPlate(),
