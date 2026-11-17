@@ -9,12 +9,12 @@ import repository.RepairRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AutoService {
-    private static final Logger logger = LoggerFactory.getLogger(AutoService.class);
-    private static final String myBadConstantName = "test";
+public class autoService {
+    private static final Logger logger = LoggerFactory.getLogger(autoService.class);
+   // private static final String myBadConstantName = "test";
     private final RepairRepository repository;
 
-    public AutoService(RepairRepository repository) {
+    public autoService(RepairRepository repository) {
         this.repository = repository;
     }
 
@@ -75,7 +75,7 @@ public class AutoService {
 
     public static void main(String[] args) {
         RepairRepository repository = new InMemoryRepairRepository();
-        AutoService service = new AutoService(repository);
+        autoService service = new autoService(repository);
         Car car = new Car("Toyota", "Camry", "А123БВ");
         Customer customer = new Customer(1, "Иван");
         RepairOrder order = new RepairOrder(1, car, customer, "Замена масла");
