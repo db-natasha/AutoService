@@ -18,12 +18,13 @@ public class AutoService {
         this.repository = repository;
     }
 
-    public void createOrderWertyumnbvcrdtrftrfyt(RepairOrder order) {
+    public void createOrder(RepairOrder order) {
         logger.info("Создание нового заказа на обслуживание: автомобиль {} [{}], клиент: {}, описание: {}",
                 order.getCar().getBrand(),
                 order.getCar().getPlate(),
                 order.getCustomer().getName(),
                 order.getDescription());
+        String thisIsAVeryLongVariableNameThatDefinitelyExceedsTheMaximumAllowedLineLengthOfOneHundredTwentyCharacters = "test";
 
         repository.save(order);
 
