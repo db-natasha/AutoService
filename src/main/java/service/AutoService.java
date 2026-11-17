@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AutoService {
-    private static final Logger logger = LoggerFactory.getLogger(AutoService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
 
     private final RepairRepository repository;
 
@@ -19,7 +19,7 @@ public class AutoService {
     }
 
     public void createOrder(RepairOrder order) {
-        logger.info("Создание нового заказа на обслуживание: автомобиль {} [{}], клиент: {}, описание: {}",
+        LOGGER.info("Создание нового заказа на обслуживание: автомобиль {} [{}], клиент: {}, описание: {}",
                 order.getCar().getBrand(),
                 order.getCar().getPlate(),
                 order.getCustomer().getName(),
@@ -27,48 +27,48 @@ public class AutoService {
 
         repository.save(order);
 
-        logger.info("Заказ №{} успешно создан", order.getId());
+        LOGGER.info("Заказ №{} успешно создан", order.getId());
     }
 
     public void markRepairDone(int id) {
-        logger.info("Отметка о выполнении ремонта для заказа №{}", id);
+        LOGGER.info("Отметка о выполнении ремонта для заказа №{}", id);
         RepairOrder order = repository.findById(id);
         if (order == null) {
-            logger.error("Попытка отметить несуществующий заказ №{} как выполненный", id);
+            LOGGER.error("Попытка отметить несуществующий заказ №{} как выполненный", id);
             throw new IllegalArgumentException("Заказ не найден");
         }
         order.setRepairDone(true);
-        logger.info("Заказ №{} отмечен как выполненный", id);
+        LOGGER.info("Заказ №{} отмечен как выполненный", id);
     }
 
     public void changeStatus(int id, String newStatus) {
         RepairOrder order = repository.findById(id);
         if (order == null) {
-            logger.error("Попытка изменить статус несуществующего заказа №{}", id);
+            LOGGER.error("Попытка изменить статус несуществующего заказа №{}", id);
             throw new IllegalArgumentException("Заказ не найден");
         }
 
-        logger.info("Изменение статуса заказа №{} с {} на {}", id, order.getStatus(), newStatus);
+        LOGGER.info("Изменение статуса заказа №{} с {} на {}", id, order.getStatus(), newStatus);
 
         if (order.getStatus().equals("COMPLETED")) {
-            logger.warn("Попытка изменить завершенный заказ №{}", id);
+            LOGGER.warn("Попытка изменить завершенный заказ №{}", id);
             throw new IllegalStateException("Нельзя изменить завершённый заказ");
         }
 
         if (newStatus.equals("COMPLETED") && !order.isRepairDone()) {
-            logger.warn("Попытка завершить заказ №{} без выполнения ремонта", id);
+            LOGGER.warn("Попытка завершить заказ №{} без выполнения ремонта", id);
             throw new IllegalStateException("Нельзя завершить заказ: ремонт не выполнен");
         }
         order.setStatus(newStatus);
-        logger.info("Статус заказа №{} успешно изменен на {}", id, newStatus);
+        LOGGER.info("Статус заказа №{} успешно изменен на {}", id, newStatus);
     }
 
     public RepairOrder findOrder(int id) {
         RepairOrder order = repository.findById(id);
         if (order == null) {
-            logger.warn("Заказ №{} не найден в репозитории", id);
+            LOGGER.warn("Заказ №{} не найден в репозитории", id);
         } else {
-            logger.debug("Заказ №{} успешно найден", id);
+            LOGGER.debug("Заказ №{} успешно найден", id);
         }
         return order;
     }
