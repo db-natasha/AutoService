@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class AutoService {
     private static final Logger logger = LoggerFactory.getLogger(AutoService.class);
-    private static final String myBadConstantName = "test";
+    //private static final String myWrongConstantName = "test";
     private final RepairRepository repository;
 
     public AutoService(RepairRepository repository) {
